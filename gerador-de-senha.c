@@ -17,7 +17,7 @@ int main (){
     if(tamanho_da_senha < 9){
         printf("o valor ideal de senha precisa ser diferente de 0 e deve ter, no minimo, 8 caracteres.\n");
     } else{
-    geraSenhas(tamanho_da_senha);
+    geraSenhas(tamanho_da_senha);//CHAMA A FUNÇÃO QUE IRAR GERAR UMA SENHA BASEADA NO TAMANHO QUE O USUARIO DEU
     }
 
     return 0;
@@ -36,13 +36,13 @@ void geraSenhas(int tamanho_da_senha){
     char num[10] = "1234567890";
     char letras[26] = "abcdefghijklmnopqrstuvwxyz"; 
     char letrasM[26]= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char sinais[10] = "!@#$*+-<>=";
+    char sinais[14] = "!@#$*+-<>=,.;:";
 //----------------------------------------------------------------------------------------------
     char senha[tamanho_da_senha];
 
     for(i = 0; i < tamanho_da_senha; i++){
-        aleatorio = rand()%4 + 1; //GERA UM VALOR ALEATORIO DE 1 A 4
-        switch (aleatorio){
+        aleatorio = rand()%4 + 1; //GERA UM VALOR ALEATORIO DE 1 A 4 UM NUMERO DE VEZES IGUAL AO TAMANHO_DA_SENHA
+        switch (aleatorio){//AI PARA CADA CASO ELE ADICIONA UM TIPO DE CARACTER RESPECTIVO
         case 1:
             senha[i] = num[rand()%10];
             break;
@@ -53,7 +53,7 @@ void geraSenhas(int tamanho_da_senha){
             senha[i] = letrasM[rand()%26];
             break;
         case 4:
-            senha[i] = sinais[rand()%10];
+            senha[i] = sinais[rand()%14];
             break;
         }
     }
